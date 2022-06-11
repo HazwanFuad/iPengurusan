@@ -465,7 +465,7 @@ export class UserdashboardPage implements OnInit {
           };
           const browser = this.iab.create(location, '_blank', options);
           browser.on('loadstart').subscribe(async event => {
-            if (event.url.includes('http://10.137.81.174')) {
+            if (event.url.includes('http://109.167.100.174')) {
               browser.close();
               this.menuCtrl.close();
               this.nativeStorage.remove('access_token');

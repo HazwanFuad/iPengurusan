@@ -18,7 +18,7 @@ export class ApiService {
   [x: string]: any;
 
   public token = '';
-  public apiUrl = 'http://10.137.81.174/imanagement/';
+  public apiUrl = 'http://109.167.100.174/imanagement/';
   public leavedataapi = {};
 
   constructor(

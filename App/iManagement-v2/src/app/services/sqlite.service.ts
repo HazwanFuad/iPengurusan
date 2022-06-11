@@ -16,18 +16,18 @@ export class SqliteService {
     private sqlite: SQLite
   ) { }
 
-  // create and open database etouch
+  // create and open database
   public initDB() {
     return this.sqlite.create({
-      name: 'etouch',
+      name: 'iManagement',
       location: 'default'
     });
   }
 
-  // create and open database etouch_session
+  // create and open database
   public initDBSession() {
     return this.sqlite.create({
-      name: 'etouch_session',
+      name: 'iManagement_session',
       location: 'default'
     });
   }
@@ -522,12 +522,12 @@ export class SqliteService {
   }
 
   dropDb() {
-    this.sqlite.deleteDatabase({ name: 'etouch', location: 'default'});
+    this.sqlite.deleteDatabase({ name: 'iManagement', location: 'default'});
     this.createDb();
   }
 
   dropDbSession() {
-    this.sqlite.deleteDatabase({ name: 'etouch_session', location: 'default'});
+    this.sqlite.deleteDatabase({ name: 'iManagement_session', location: 'default'});
     this.createDbSession();
   }
 

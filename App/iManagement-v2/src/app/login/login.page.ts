@@ -6,15 +6,14 @@ import { ApiService } from '../services/api.service';
 import { Plugins } from '@capacitor/core';
 import { Router } from '@angular/router';
 import { MenuController, Platform, IonRouterOutlet } from '@ionic/angular';
-import { formatDate } from '@angular/common';
 
 const { App } = Plugins;
 
 export const environment = {
 
-  oauthClientId: '4eqZZiRmLWEV8CpnU1R9yFmvU2DNc9v0teX9wmfx',
-  oauthLoginUrl: 'http://10.137.81.174/callback-mobile',
-  oauthTokenUrl: 'http://10.137.81.174/o/token',
+  oauthClientId: 'RXoUynqJ802grTDTwZUHzwe3dV3d',
+  oauthLoginUrl: 'http://109.167.100.174/mobile-call',
+  oauthTokenUrl: 'http://109.167.100.174/auth/token',
   oauthCallbackUrl: 'https://oauth.pstmn.io/v1/callback/',
 };
 

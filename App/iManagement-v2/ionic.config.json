@@ -1,7 +1,0 @@
-{
-  "name": "iManagement",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}

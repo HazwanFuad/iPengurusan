@@ -1,0 +1,7 @@
+{
+  "name": "etouchmobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

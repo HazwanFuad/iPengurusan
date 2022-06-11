@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons slot="end">
+      <ion-icon class="titletext" name="close-outline" style="font-size: 20px;" routerLink="/course"></ion-icon>
+    </ion-buttons>
+    <ion-title class="titletext">PERMOHONAN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label class="ion-text-wrap" style="text-align: center;">Sila Pilih Tarikh Mula Dan Akhir Pada Kalendar Untuk Membuat Permohonan</ion-label>
+  </ion-item>
+  <div class="ion-padding">
+    <ion-calendar [(ngModel)]="date"
+      [options]="optionsRange"
+      [type]="type"
+      [format]="'DD-MM-YYYY'">
+    </ion-calendar>
+  </div>
+
+</ion-content>
+<ion-footer>
+  <section>
+    <ion-button class="btn-color" size="large" routerLink="/course/confirm/2" expand="full">SETERUSNYA</ion-button>
+  </section>
+</ion-footer>

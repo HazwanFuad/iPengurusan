@@ -1,0 +1,7 @@
+{
+  "appId": "my.gov.onegovappstore.etouchmobile",
+  "appName": "etouchmobile",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist/app/browser"
+}

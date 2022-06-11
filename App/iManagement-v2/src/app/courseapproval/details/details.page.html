@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-title class="titletext">KELULUSAN TUGAS LUAR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let data of CoursesDetails | keyvalue">
+    <ion-item>
+      <!-- <ion-label position="floating"><b>NAMA</b></ion-label> -->
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-card-content >
+        {{data.value.KurStaffName}}
+      </ion-card-content>
+    </ion-item>
+
+    <ion-item>
+      <!-- <ion-label position="floating"><b>TARIKH</b></ion-label> -->
+      <ion-icon name="calendar-outline"></ion-icon>
+      <ion-card-content >
+        {{data.value.TarikhMula}} - {{data.value.TarikhTamat}} <br>
+      </ion-card-content>
+    </ion-item>
+
+    <ion-item>
+      <!-- <ion-label position="floating"><b>BIL. HARI</b></ion-label> -->
+      <ion-icon name="calendar-number-outline"></ion-icon>
+      <ion-card-content *ngIf="data.value.NumOfDay != 0">
+        {{data.value.NumOfDay}} HARI
+      </ion-card-content>
+      <ion-card-content *ngIf="data.value.NumOfDay == 0">
+        {{data.value.TimeMula}} - {{data.value.TimeTamat}}
+      </ion-card-content>
+    </ion-item>
+
+    <ion-item>
+      <!-- <ion-label position="floating"><b>MAKLUMAT TUGAS LUAR</b></ion-label> -->
+      <ion-icon name="document-text-outline"></ion-icon>
+      <ion-card-content >
+        <b>{{data.value.kurDesc | uppercase}}</b> <br>
+        {{data.value.KurName | uppercase}}
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
+</ion-content>

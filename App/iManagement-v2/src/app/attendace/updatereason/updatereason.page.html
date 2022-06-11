@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons slot="start">
+      <ion-icon class="titletext" (click)="backAlertConfirm()" name="chevron-back-outline" style="font-size: 20px;"></ion-icon>
+    </ion-buttons>
+      <ion-title class="titletext">KEMASUKAN ALASAN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content class="padding" color="light"  *ngFor="let data of attendace | keyvalue"> 
+    <form [formGroup]="editForm" (ngSubmit)="saveForm()">
+  <ion-card>  
+    <ion-card-header>  
+      <ion-card-title style="text-align:center;">MASUKAN ALASAN KEHADIRAN</ion-card-title>  
+    </ion-card-header>  
+    <br>
+    <ion-item>
+      <ion-label position="floating"><b>TARIKH</b></ion-label>
+      <ion-input formControlName="date" value="{{data.value.date}}" displayFormat="dd-MM-YYYY" [disabled]="true"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label position="floating"><b>JENIS KEHADIRAN</b></ion-label>
+      <ion-input formControlName="jenis_kehadiran_desc" type="text" value="{{data.value.jenis_kehadiran_desc}}"  [disabled]="true"></ion-input>
+    </ion-item>
+    <br>
+
+    <ion-item *ngIf="data.value.alasan_ring === 'lwt' ">
+      <ion-label position="floating">PILIH ALASAN</ion-label>
+      <ion-select formControlName = "alasanCatatan"   mode="ios" cancelText="Kembali" interface="action-sheet" (ionChange)= "getList"  class="required">
+        <ion-select-option *ngFor="let data of KehadiranLewat | keyvalue" value="{{data.value.alas_catatan}}">{{data.value.alas_catatan | uppercase}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+      
+
+    <ion-item  *ngIf="data.value.alasan_ring === 'xhdr' ">
+      <ion-label position="floating">PILIH ALASAN</ion-label>
+      <ion-select [(ngModel)] = "select" formControlName = "alasanCatatan"  value="notifications" mode="ios" cancelText="Kembali" interface="action-sheet" required>
+        <ion-select-option *ngFor="let data of KehadiranTakHadir | keyvalue" value="{{data.value.alas_catatan}}">{{data.value.alas_catatan | uppercase}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item  *ngIf="data.value.alasan_ring === 'xjam' ">
+      <ion-label position="floating">PILIH ALASAN</ion-label>
+      <ion-select  formControlName = "alasanCatatan"  value="notifications" mode="ios" cancelText="Kembali" interface="action-sheet">
+        <ion-select-option *ngFor="let data of KehadiranTakCukupJam | keyvalue" value="{{data.value.alas_catatan}}">{{data.value.alas_catatan | uppercase}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item  *ngIf="data.value.alasan_ring === 'xlgkp' ">
+      <ion-label position="floating">PILIH ALASAN</ion-label>
+      <ion-select  [(ngModel)] = "select"  formControlName = "alasanCatatan"  value="notifications" mode="ios" cancelText="Kembali" interface="action-sheet">
+        <ion-select-option *ngFor="let data of KehadiranTakLengkap | keyvalue" value="{{data.value.alas_catatan}}">{{data.value.alas_catatan | uppercase}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item *ngIf="select === '30' ||  select === '106' ||  select === '39'   ||  select === '12' ">
+      <ion-label position="floating">JENIS TUGAS LUAR</ion-label>
+      <ion-select formControlName="KurCode" mode="ios" cancelText="Kembali" interface="action-sheet" (ionChange)= "getList"  class="required">
+        <ion-select-option *ngFor="let data of ListJenisTugasLuar | keyvalue" value="{{data.value.KursusKod}}">{{data.value.KursusDesc | uppercase}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item *ngIf="select === '30' ||  select === '106' ||  select === '39'   ||  select === '12' ">
+      <ion-input  formControlName="date" value="{{data.value.date}}"></ion-input>
+      &nbsp;&nbsp;
+      <ion-label style="text-align: center !important;">HINGGA</ion-label>
+      &nbsp;&nbsp;
+      <ion-input formControlName="Endate"  type = "date" value="{{data.value.Endate}}" placeholder="Tarikh Akhir" ></ion-input>
+    </ion-item> 
+
+
+    <ion-item>
+      <ion-label position="floating">CATATAN</ion-label>
+      <ion-input formControlName="ealt_remark" type="text" value="{{data.value.ealt_remark}}"></ion-input>
+    </ion-item>
+  </ion-card>
+
+  <ion-footer>
+    <ion-button class="btn-color" [disabled]="!editForm.valid" type="submit"  value="id" expand="block">SIMPAN</ion-button>
+  </ion-footer>
+</form>
+</ion-content>

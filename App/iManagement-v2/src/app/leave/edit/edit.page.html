@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons slot="start">
+      <ion-icon class="titletext" (click)="backAlertConfirm()" name="chevron-back-outline" style="font-size: 20px;"></ion-icon>
+    </ion-buttons>
+      <ion-title class="titletext">KEMASKINI MAKLUMAT CUTI</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="padding" color="light"  *ngFor="let data of leaveUser | keyvalue"> 
+  <form [formGroup]="editForm" (ngSubmit)="saveForm()">
+    <ion-card>
+      <ion-list-header>
+        <ion-label style="text-align: center !important;">KEMASKINI CUTI</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label position="floating"><b>TARIKH MULA</b></ion-label>
+        <ion-input formControlName="StartDate" type="Date" value="{{data.value.StartDate}}" required></ion-input>
+        <!-- <p *ngIf="field.errors?.minDate">error message</p> -->
+      </ion-item>
+      <br>
+      <ion-item>  
+        <ion-label position="floating"><b>TARIKH TAMAT</b></ion-label>
+        <ion-input formControlName="EndDate" type="Date" value="{{data.value.EndDate}}" required></ion-input>
+        <!-- <label *ngIf="form.errors">{{ form.errors?.dates | json }}</label> -->
+      </ion-item> 
+      <br>
+      <ion-item>  
+        <ion-label position="floating"><b>BILANGAN HARI</b></ion-label>  
+        <ion-input  formControlName="NoOfDay" type="text" value="NoOfDay" required></ion-input> 
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label position="floating"><b>JENIS CUTI</b></ion-label>
+        <ion-select formControlName="LeaveCode" value="LeaveCode" mode="ios" cancelText="Kembali" interface="action-sheet" (ionChange)= "getList">
+          <ion-select-option *ngFor="let data of JenisCuti | keyvalue" value="{{data.value.eaal_leavekod}}">{{data.value.eaal_leavedesc | uppercase}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br>
+      <ion-item>  
+        <ion-label position= "floating"><b>CATATAN</b></ion-label>  
+        <ion-input  formControlName="Remark" type="text" value="{{data.value.Remark}}" maxlength="100"></ion-input> 
+      </ion-item>
+    </ion-card>
+    <ion-footer>
+      <ion-button class="btn-color" [disabled]="!editForm.valid" type="submit/{{data.value.id}}" expand="block">KEMASKINI</ion-button>
+    </ion-footer>
+  </form>
+</ion-content>

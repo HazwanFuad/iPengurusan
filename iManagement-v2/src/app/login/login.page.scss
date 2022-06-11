@@ -1,0 +1,21 @@
+/* Insert Font Type*/ 
+  ion-label {
+    font-family:Ubuntu-Regular !important;
+  }
+  /* End Of Font Type*/
+
+  ion-toolbar {
+    display:block;
+    text-align: center;
+  }
+
+  .btn-login {
+      justify-content: center !important;
+
+    .loginbtn-style {
+        --background: #1eddac;
+        width: 75%;
+        display: block;
+        margin: 0 auto;
+    }
+  }

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-title class="titletext">KELULUSAN ALASAN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <!-- <ion-label position="floating"><b>NAMA</b></ion-label> -->
+      <ion-icon name="person-outline" style="font-size: 20px;"></ion-icon>
+      <ion-card-content>
+        {{reasonById.easf_staffname}}
+      </ion-card-content>
+    </ion-item>
+
+    <ion-item>
+      <!-- <ion-label position="floating"><b>ALASAN KEHADIRAN</b></ion-label> -->
+      <ion-icon src="assets/icon/question.svg" style="font-size: 15px;"></ion-icon>
+      <ion-card-content>
+        &nbsp;{{reasonById.alasan_desc  | uppercase}}
+      </ion-card-content>
+    </ion-item>
+
+    <ion-item>
+      <!-- <ion-label position="floating"><b>TARIKH</b></ion-label> -->
+      <ion-icon name="calendar-outline" style="font-size: 20px;"></ion-icon>
+      <ion-card-content>
+        {{reasonById.tkh_alasan}}
+      </ion-card-content>
+    </ion-item>
+
+    <ion-item>
+      <!-- <ion-label position="floating"><b>ALASAN / CATITAN</b></ion-label> -->
+      <ion-icon src="assets/icon/docs.svg" style="font-size: 30px;"></ion-icon>
+      <ion-card-content>
+        <!-- REKOD KEHADIRAN DI DALAM BUKU LOG KEHADIRAN BPPT -->
+        {{reasonById.ealt_remark | uppercase}}</ion-card-content>
+    </ion-item>
+  </ion-card>
+</ion-content>

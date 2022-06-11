@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons class="titletext" slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="titletext">KELULUSAN ALASAN</ion-title>
+    <ion-buttons class="titletext" slot="end">
+      <ion-button size="large" shape="round" (click)="handleButtonClick()">
+        <ion-icon name="refresh-outline" style="font-weight: bolder; color:white;" item-right></ion-icon>
+       </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-sliding id="item100" *ngFor="let data of listReason | keyvalue">
+    <ion-item>
+      <!-- <ion-icon name="chevron-forward-outline" slot="end"></ion-icon> -->
+      <ion-label>
+      <ion-card class="bg-style" (click)="Alasan(data.value.id)">  
+        <ion-card-header>  
+          <ion-card-subtitle><b>{{data.value.easf_staffname}}</b></ion-card-subtitle>  
+          <ion-card-subtitle>{{data.value.alasan_desc | uppercase}}</ion-card-subtitle> 
+          <ion-card-subtitle><b>{{data.value.tkh_alasan }}</b></ion-card-subtitle> 
+          </ion-card-header>  
+
+        <!-- <ion-card-content>  
+          REKOD KEHADIRAN DI DALAM BUKU LOG KEHADIRAN BPPT
+        </ion-card-content>   -->
+      </ion-card>
+    </ion-label>
+    <!-- <ion-icon name="chevron-backward-outline" slot="end"></ion-icon> -->
+
+    </ion-item>
+
+    <!-- <ion-item-options side="start">
+      <ion-item-option color="warning">
+        <ion-icon (click)="kivAlertConfirm(data.value.id, data.value.ealt_staffid, data.value.ealt_date, data.value.ealt_latecode, data.value.ealt_latetime)" tooltip="KIV" slot="icon-only" name="file-tray-stacked"></ion-icon>
+      </ion-item-option>
+    </ion-item-options> -->
+
+    <ion-item-options side="end">
+      <ion-item-option color="success" (click)="approvedAlertConfirm(data.value.id, data.value.ealt_staffid, data.value.ealt_date, data.value.ealt_latecode, data.value.ealt_latetime)">
+        <ion-icon tooltip="Ya" slot="icon-only" name="checkmark" ></ion-icon>
+      </ion-item-option>
+      <ion-item-option color="danger" (click)="canceledAlertConfirm(data.value.id, data.value.ealt_staffid, data.value.ealt_date, data.value.ealt_latecode, data.value.ealt_latetime)">
+        <ion-icon tooltip="Tidak" slot="icon-only" name="close"></ion-icon>
+      </ion-item-option>
+      <ion-item-option color="warning" (click)="kivAlertConfirm(data.value.id, data.value.ealt_staffid, data.value.ealt_date, data.value.ealt_latecode, data.value.ealt_latetime)">
+        <ion-icon tooltip="KIV" slot="icon-only" name="file-tray-stacked"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+  <!-- <ion-refresher disabled="false" slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200"
+    (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
+      refreshingSpinner="lines" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher> -->
+  <ion-card-header class="container" *ngIf="!(listReason?.length > 0)">
+    <ion-icon name="information-circle-outline" style="justify-content: center !important; zoom:3.0; color: #1eddac !important;"></ion-icon>
+    <ion-card-title style="text-align: center !important;">TIADA REKOD</ion-card-title>
+  </ion-card-header>
+</ion-content>
+<ion-toolbar>
+  <!--Tabs Bottom-->
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" style="overflow: auto; justify-content: flex-start;">
+      <ion-tab-button routerLink="/attendace/approve">
+        <ion-icon src="assets/icon/person-timer.svg" style="font-size: 25px;"></ion-icon>
+        <ion-badge color="danger" class="tabs-badge" *ngIf="countTotalKehadiran !== 0">{{countTotalKehadiran}}</ion-badge>
+        <ion-badge color="danger" class="tabs-badge" *ngIf="countTotalKehadiran == 0">0</ion-badge>
+        <ion-label style="font-size: 10px; font-weight: bolder;">KEHADIRAN</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button routerLink="/course">
+        <ion-icon src="assets/icon/books.svg" style="font-size: 25px;"></ion-icon>
+        <ion-badge color="danger" class="tabs-badge" *ngIf="countTotalCourses !== 0">{{countTotalCourses}}</ion-badge>
+        <ion-badge color="danger" class="tabs-badge" *ngIf="countTotalCourses == 0">0</ion-badge>
+        <ion-label style="font-size: 10px; font-weight: bolder;">KURSUS</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button routerLink="/leave">
+        <ion-icon name="medkit-outline" style="font-size: 25px;"></ion-icon>
+        <ion-badge color="danger" class="tabs-badge" *ngIf="countTotalLeave !== 0">{{countTotalLeave}}</ion-badge>
+        <ion-badge color="danger" class="tabs-badge" *ngIf="countTotalLeave == 0">0</ion-badge>
+        <ion-label style="font-size: 10px; font-weight: bolder;">CUTI</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button routerLink="/reader">
+        <ion-icon name="finger-print-outline" style="font-size: 25px;"></ion-icon>
+        <ion-label style="font-size: 10px; font-weight: bolder;">STATUS READER</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  <!--End of Tabs Bottom-->
+</ion-toolbar>

@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons class="titletext" slot="start">
+      <ion-menu-button class="titletext"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="titletext">STATUS READER</ion-title>
+    <ion-buttons class="titletext" slot="end">
+      <ion-button size="large" shape="round" (click)="handleButtonClick()">
+        <ion-icon name="refresh-outline" style="font-weight: bolder; color:white;" item-right></ion-icon>
+       </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-item-divider *ngFor="let data of lastupdate | keyvalue">
+  <ion-label class="readerupdate">KEMASKINI DATA TERAKHIR PADA : <b>{{data.value.tarikh | date:'dd-MM-YYYY HH:mm'}}</b></ion-label><br>
+</ion-item-divider>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-item-divider *ngFor="let data of statusreader | keyvalue | orderBy: 'value.doorDesc': 'asc'">
+      <ion-col>
+          <ion-card-header>  
+            <ion-card-subtitle><b>{{data.value.doorDesc}}</b></ion-card-subtitle>
+            <ion-card-subtitle>{{data.value.readertypeDesc}}</ion-card-subtitle>
+          </ion-card-header>
+      </ion-col>
+      <ion-col>
+        <ion-card-content class="align" *ngIf="data.value.readerstatStatus == '0'">
+          <ion-button shape="round" class="offline-color">
+            <span float:right>OFFLINE</span>
+          </ion-button>
+        </ion-card-content>
+        <ion-card-content class="align" *ngIf="data.value.readerstatStatus == '1'">
+          <ion-button shape="round" class="online-color">
+            <span float:right>ONLINE</span>
+          </ion-button>
+        </ion-card-content>
+      </ion-col>
+    </ion-item-divider>
+    </ion-row>
+  </ion-grid>
+  <ion-card-header class="container" *ngIf="!(statusreader?.length > 0)">
+    <ion-icon name="information-circle-outline" style="justify-content: center !important; zoom:3.0; color: #1eddac !important;"></ion-icon>
+    <ion-card-title style="text-align: center !important;">TIADA REKOD READER DITEMUI</ion-card-title>
+  </ion-card-header>
+</ion-content>
+<ion-toolbar>
+  <!--Tabs Bottom-->
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" style="overflow: auto; justify-content: flex-start;">
+      <ion-tab-button routerLink="/attendace/approve">
+        <ion-icon src="assets/icon/person-timer.svg" style="font-size: 25px;"></ion-icon>
+        <ion-badge color="danger" class="tabs-badge" *ngIf="countTotalKehadiran !== 0">{{countTotalKehadiran}}</ion-badge>
+        <ion-badge color="danger" class="tabs-badge" *ngIf="countTotalKehadiran == 0">0</ion-badge>
+        <ion-label style="font-size: 10px; font-weight: bolder;">KEHADIRAN</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button routerLink="/course">
+        <ion-icon src="assets/icon/books.svg" style="font-size: 25px;"></ion-icon>
+        <ion-badge color="danger" class="tabs-badge" *ngIf="countTotalCourses !== 0">{{countTotalCourses}}</ion-badge>
+        <ion-badge color="danger" class="tabs-badge" *ngIf="countTotalCourses == 0">0</ion-badge>
+        <ion-label style="font-size: 10px; font-weight: bolder;">KURSUS</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button routerLink="/leave">
+        <ion-icon name="medkit-outline" style="font-size: 25px;"></ion-icon>
+        <ion-badge color="danger" class="tabs-badge" *ngIf="countTotalLeave !== 0">{{countTotalLeave}}</ion-badge>
+        <ion-badge color="danger" class="tabs-badge" *ngIf="countTotalLeave == 0">0</ion-badge>
+        <ion-label style="font-size: 10px; font-weight: bolder;">CUTI</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button routerLink="/reader">
+        <ion-icon name="finger-print-outline" style="font-size: 25px;"></ion-icon>
+        <ion-label style="font-size: 10px; font-weight: bolder;">STATUS READER</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  <!--End of Tabs Bottom-->
+</ion-toolbar>

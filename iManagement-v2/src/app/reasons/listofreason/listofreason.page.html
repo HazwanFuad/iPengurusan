@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons class="titletext" slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- <ion-title>REASONS</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <ion-item>
+    <ion-datetime placeholder="Select Start Date"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-datetime placeholder="Select End Date"></ion-datetime>
+  </ion-item>
+  <br>
+  <section>
+    <ion-button expand="block" color="success">Search</ion-button>
+  </section>
+  <br>
+  <ion-card>
+    <ion-card-header>  
+      <ion-card-subtitle>Hadir Tidak Lengkap (thumb in)</ion-card-subtitle>
+      <ion-card-subtitle>Masalah Kesihatan (sakit perut)</ion-card-subtitle>  
+      <br>
+      <ion-card-subtitle>Approved By</ion-card-subtitle>
+      <ion-card-subtitle>Nasir Bin Ismail</ion-card-subtitle>
+    </ion-card-header>  
+    <ion-card-content>  
+      <ion-list class="align">
+        <ion-button color="success">
+          <span float:right>Approved</span>
+        </ion-button>   
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">  
+    <ion-fab-button color="success">  
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>  
+  </ion-fab>  
+</ion-content>

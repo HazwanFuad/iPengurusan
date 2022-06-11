@@ -1,0 +1,60 @@
+/* Insert Font Type*/
+ion-title {
+  font-family:Ubuntu-Regular !important;
+  font-size: 20px;
+}
+
+ion-lable {
+  font-family:Ubuntu-Regular !important;
+  font-size: 15px;
+}
+
+ion-card-subtitle {
+  font-family:Ubuntu-Regular !important;
+  font-size: 15px;
+}
+
+ion-button {
+  font-family:Ubuntu-Regular !important;
+}
+/* End Of Font Type*/
+
+.new-background-color{
+  --background: linear-gradient(90deg, #1eddac, #1eddac, #1eddac, #1eddac, #1eddac, #04a4f4);
+}
+
+
+.titletext {
+  color: white;
+  font-weight: bold;
+}
+
+.bg-style {
+  --background: #efefef;
+}
+
+ion-card {
+  border-radius: 25px;
+}
+
+.header-row {
+    background: #4BB543;
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  ion-col {
+    border: 1px solid #ECEEEF;
+  }
+
+  .btn-color {
+    --background: #04a4f4;
+  }
+
+  .fab-color {
+    --background: #1eddac !important;
+  }
+
+  .bg-style {
+    --background: #efefef;
+  }

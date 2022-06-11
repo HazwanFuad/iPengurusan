@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons class="titletext" slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="titletext">KEHADIRAN INDIVIDU</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <ion-item>
+    <ion-label class="ion-text-wrap" style="text-align: center;">Sila Tekan Tarikh Pada Kalendar Bagi Butiran Kehadiran</ion-label>
+  </ion-item>
+  <div class="ion-padding">
+    <ion-calendar [(ngModel)]="dateRange"
+      (onChange)="onChange($event)"
+      [readonly]="false"
+      [type]="type"
+      [format]="'DD-MM-YYYY'">
+    </ion-calendar>
+  </div>
+
+  <!--Tabs Bottom-->
+  <!-- <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button  >
+        <ion-icon name="finger-print-outline"></ion-icon>
+      </ion-tab-button>
+  
+      <ion-tab-button  >
+        <ion-icon name="list-outline"></ion-icon>
+      </ion-tab-button>
+  
+      <ion-tab-button  >
+        <ion-icon name="man-outline"></ion-icon>
+      </ion-tab-button>
+  
+      <ion-tab-button  >
+        <ion-icon name="hourglass-outline"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs> -->
+  
+</ion-content>
+
+<ion-footer>
+  <section>
+    <ion-button class="btn-color" size="large" routerLink="/attendace/work" expand="full">SETERUSNYA</ion-button>
+  </section>
+</ion-footer>

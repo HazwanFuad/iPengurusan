@@ -1,0 +1,7 @@
+{
+  "appId": "iManagement",
+  "appName": "iManagement",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist/app/browser"
+}

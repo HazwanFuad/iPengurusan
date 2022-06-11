@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons slot="end">
+      <ion-icon class="titletext" name="close-outline" style="font-size: 20px;" routerLink="/attendace/approve"></ion-icon>
+    </ion-buttons>
+    <ion-title class="titletext">RINGKASAN ALASAN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label position="floating"><b>NAMA</b></ion-label>
+      <ion-card-content style="margin-top: 5%;">
+        ABD AZIZ BIN ABD HADI
+      </ion-card-content>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"><b>ALASAN KEHADIRAN</b></ion-label>
+      <ion-card-content style="margin-top: 5%;">
+        TIDAK HADIR
+      </ion-card-content>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"><b>TARIKH</b></ion-label>
+      <ion-card-content style="margin-top: 5%;">
+        14/10/2020
+      </ion-card-content>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"><b>ALASAN / CATITAN</b></ion-label>
+      <ion-card-content style="margin-top: 5%;">
+        REKOD KEHADIRAN DI DALAM BUKU LOG KEHADIRAN BPPT
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <section>
+    <ion-button class="new-background-color" (click)="handleActionClick()" expand="full">KELULUSAN</ion-button>
+  </section>
+</ion-footer>

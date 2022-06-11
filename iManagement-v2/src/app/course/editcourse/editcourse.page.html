@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons slot="start">
+      <ion-icon class="titletext" (click)="backAlertConfirm()" name="chevron-back-outline" style="font-size: 20px;"></ion-icon>
+    </ion-buttons>
+      <ion-title class="titletext">KEMASKINI KURSUS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="padding" color="light"  *ngFor="let data of courses | keyvalue"> 
+  <form [formGroup]="editForm" (ngSubmit)="saveForm()">
+    
+    <ion-list-header>
+      <ion-label style="text-align: center !important;">KEMASKINI KURSUS</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label position="floating">JENIS TUGAS LUAR</ion-label>
+      <ion-select [(ngModel)] = "data.value.KurCode" formControlName="KurCode"  mode="ios" cancelText="Kembali" interface="action-sheet" (ionChange)= "getList"  class="required">
+        <ion-select-option *ngFor="let data of JenisTugasLuar | keyvalue" value="{{data.value.KursusKod}}">{{data.value.KursusDesc | uppercase}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="data.value.KurCode === '15' || data.value.KurCode === '19' || data.value.KurCode === '16' || data.value.KurCode === '18' || data.value.KurCode === '5'  ">
+      <ion-label position="floating"><b>MASA MULA</b></ion-label>
+      <ion-input  formControlName="TimeStart"  type="Time" displayFormat="H:mm:ss"></ion-input>
+
+      <ion-label position="floating"><b>MASA TAMAT</b></ion-label>
+      <ion-input  formControlName="TimeEnd"  type="Time" displayFormat="H:mm:ss"></ion-input>
+    </ion-item>
+
+    <ion-item>  
+      <ion-label position= "floating"><b>TAJUK TUGAS LUAR</b></ion-label>  
+      <ion-input  formControlName="CourseName" type="text" value="{{data.value.CourseName}}" required></ion-input> 
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"><b>TARIKH MULA</b></ion-label>
+      <ion-input formControlName="KurStart" type="Date" value="{{data.value.KurStart}}" required></ion-input>
+    </ion-item>
+    
+    <ion-item>  
+      <ion-label position="floating"><b>TARIKH AKHIR</b></ion-label>
+      <ion-input formControlName="KurEnd" type="Date" value="{{data.value.KurEnd}}" required></ion-input>
+    </ion-item>
+
+    <ion-item>  
+      <ion-label position= "floating"><b>TUJUAN / LOKASI</b></ion-label>  
+      <ion-input  formControlName="KurLocation" type="text" value="{{data.value.KurLocation}}" required></ion-input> 
+    </ion-item>
+
+    <ion-item>  
+      <ion-label position= "floating"><b>ANJURAN</b></ion-label>  
+      <ion-input  formControlName="KurAnjuran" type="text" value="{{data.value.KurAnjuran}}" required></ion-input> 
+    </ion-item>
+
+    <ion-footer *ngIf="isKeyboardHide">
+      <ion-button class="btn-color" [disabled]="!editForm.valid" type="submit/{{data.value.id}}" expand="block">KEMASKINI</ion-button>
+    </ion-footer>
+
+  </form>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
